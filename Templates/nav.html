@@ -1,0 +1,33 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>QUIZZAPP</h2>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="index.html" class="nav-item nav-link active">Home</a>
+            <a href="about.html" class="nav-item nav-link">About</a>
+            <a href="{% url 'course_userside' %}" class="nav-item nav-link">Courses</a>
+             <div class="nav-item dropdown">
+                {% comment %} <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Quiz</a>
+                <div class="dropdown-menu fade-down m-0">
+                    <a href="{% url 'quiz' %}" class="dropdown-item">PHP</a>
+                    <a href="{% url 'quiz1' %}" class="dropdown-item">ASP</a>
+                    <a href="{% url 'quiz2' %}" class="dropdown-item">Django</a>
+                </div>  {% endcomment %}
+            </div> 
+            {% if user.is_authenticated %}
+                <span class="nav-item nav-link">Welcome {{ user.username }}</span>
+            {% else %}
+                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+            {% endif %}
+        </div>
+       
+            <a href="{% url 'register' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">SignUp<i class="fa fa-arrow-right ms-3"></i></a>
+       
+    </div>
+</nav>
+<!-- Navbar End -->
